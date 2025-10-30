@@ -1,7 +1,5 @@
-// Archivo: js/javascript.js
 document.addEventListener('DOMContentLoaded', function(){
 
-  // 1) Registro - validaciones
   const formRegistro = document.getElementById('formRegistro');
   const registroResultado = document.getElementById('registroResultado');
 
@@ -14,21 +12,18 @@ document.addEventListener('DOMContentLoaded', function(){
     const pass = document.getElementById('pass').value;
     const pass2 = document.getElementById('pass2').value;
 
-    // a) campos vacíos
     if(!nombre || !correo || !pass || !pass2){
       registroResultado.textContent = 'Error: Todos los campos son obligatorios.';
       registroResultado.style.color = 'red';
       return;
     }
 
-    // b) correo que contenga @ y . usando indexOf
     if(correo.indexOf('@') === -1 || correo.indexOf('.') === -1){
       registroResultado.textContent = 'Error: Correo inválido (debe contener "@" y ".").';
       registroResultado.style.color = 'red';
       return;
     }
 
-    // c) contraseña: al menos 8 caracteres, 1 número y 1 mayúscula
     const reNumero = /[0-9]/;
     const reMayus = /[A-Z]/;
     if(pass.length < 8 || !reNumero.test(pass) || !reMayus.test(pass)){
@@ -37,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function(){
       return;
     }
 
-    // contraseñas iguales
     if(pass !== pass2){
       registroResultado.textContent = 'Error: Las contraseñas no coinciden.';
       registroResultado.style.color = 'red';
@@ -48,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function(){
     registroResultado.textContent = 'Registro exitoso. (Simulación)';
   });
 
-  // 2) Primos hasta n - crear elementos en el DOM
   document.getElementById('btnPrimos').addEventListener('click', function(){
     const n = parseInt(document.getElementById('nPrimos').value, 10);
     const out = document.getElementById('primosResultado');
@@ -74,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function(){
     out.appendChild(document.createTextNode('Cantidad: ' + primes.length));
   });
 
-  // 3) Split() - análisis de texto y mostrar en ventana nueva
   document.getElementById('btnSplit').addEventListener('click', function(){
     const texto = document.getElementById('textoSplit').value.trim();
     const out = document.getElementById('splitResultado');
@@ -95,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function(){
       <strong>Orden A→Z:</strong> ${ordenAZ.join(', ')} <br>
       <strong>Orden Z→A:</strong> ${ordenZA.join(', ')}`;
 
-    // abrir ventana nueva con la información
     const win = window.open('', '_blank', 'noopener');
     if(win){
       win.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Split - Resultado</title></head><body>');
@@ -106,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // 4) Capicúa
+  
   document.getElementById('btnCap').addEventListener('click', function(){
     const num = document.getElementById('numCap').value;
     const out = document.getElementById('capResultado');
@@ -117,8 +108,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(s === rev) out.textContent = s + ' → Es capicúa';
     else out.textContent = s + ' → No es capicúa';
   });
-
-  // 5) Examen - evaluación y temporizador de 5 minutos
+  
   const respuestasCorrectas = { q1: 'a', q2: 'b', q3: 'b' };
   const formExamen = document.getElementById('formExamen');
   const examenResultado = document.getElementById('examenResultado');
@@ -147,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   function evaluarExamen(auto=false){
-    // si auto=true se envía por tiempo terminado
     const respuestas = {
       q1: obtenerRespuesta('q1'),
       q2: obtenerRespuesta('q2'),
@@ -173,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if(auto){
       examenResultado.innerHTML += '<br><em>Enviado automáticamente por agotamiento del tiempo.</em>';
     }
-    // desactivar botones/inputs
     Array.from(formExamen.querySelectorAll('input')).forEach(i=>i.disabled = true);
     btnEnviarExamen.disabled = true;
   }
