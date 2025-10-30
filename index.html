@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Práctica JavaScript - Desarrollo Web</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px;line-height:1.5}
+    h1,h2{color:#1a73e8}
+    .card{border:1px solid #ddd;padding:15px;border-radius:8px;margin-bottom:16px}
+    label{display:block;margin-top:8px}
+    input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea {width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:4px}
+    button{margin-top:10px;padding:8px 12px;border-radius:6px;border:none;background:#1a73e8;color:#fff;cursor:pointer}
+    small{color:#666}
+    .result{background:#f7f7f7;padding:10px;border-radius:6px;margin-top:8px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <h1>Práctica JavaScript - Unidad II</h1>
+  <p><small>Alumno: ____________________  |  Materia: Desarrollo Web</small></p>
+
+  <section class="card" id="registro">
+    <h2>1) Formulario de registro (validación)</h2>
+    <form id="formRegistro" novalidate>
+      <label>Nombre <input type="text" id="nombre" required></label>
+      <label>Correo <input type="email" id="correo" required></label>
+      <label>Contraseña <input type="password" id="pass" required></label>
+      <label>Repetir contraseña <input type="password" id="pass2" required></label>
+      <button type="submit">Registrar</button>
+    </form>
+    <div id="registroResultado" class="result hidden"></div>
+  </section>
+
+  <section class="card" id="primos">
+    <h2>2) Números primos hasta n</h2>
+    <label>Ingresa n: <input type="number" id="nPrimos" min="2" value="50"></label>
+    <button id="btnPrimos">Generar primos</button>
+    <div id="primosResultado" class="result"></div>
+  </section>
+
+  <section class="card" id="splitter">
+    <h2>3) Análisis de cadena y split()</h2>
+    <label>Ingresa un texto<textarea id="textoSplit" rows="3"></textarea></label>
+    <button id="btnSplit">Analizar texto</button>
+    <div id="splitResultado" class="result"></div>
+  </section>
+
+  <section class="card" id="capicua">
+    <h2>4) Verificar si es capicúa</h2>
+    <label>Ingresa un número <input type="number" id="numCap" value="121"></label>
+    <button id="btnCap">Verificar</button>
+    <div id="capResultado" class="result"></div>
+  </section>
+
+  <section class="card" id="examen">
+    <h2>5) Examen - opción múltiple (3 preguntas) - 5 minutos</h2>
+    <div>Tiempo restante: <span id="timer">05:00</span></div>
+    <form id="formExamen">
+      <div>
+        <p>1) ¿Cuál es la etiqueta correcta para insertar JavaScript?</p>
+        <label><input type="radio" name="q1" value="a"> &lt;script&gt;</label>
+        <label><input type="radio" name="q1" value="b"> &lt;javascript&gt;</label>
+        <label><input type="radio" name="q1" value="c"> &lt;js&gt;</label>
+      </div>
+      <div>
+        <p>2) ¿Cuál de los siguientes no es un tipo primitivo en JavaScript?</p>
+        <label><input type="radio" name="q2" value="a"> Number</label>
+        <label><input type="radio" name="q2" value="b"> Object</label>
+        <label><input type="radio" name="q2" value="c"> String</label>
+      </div>
+      <div>
+        <p>3) ¿Qué método convierte una cadena a un arreglo por separador?</p>
+        <label><input type="radio" name="q3" value="a"> join()</label>
+        <label><input type="radio" name="q3" value="b"> split()</label>
+        <label><input type="radio" name="q3" value="c"> slice()</label>
+      </div>
+      <button type="button" id="btnEnviarExamen">Enviar respuestas</button>
+    </form>
+    <div id="examenResultado" class="result"></div>
+  </section>
+
+  <script src="js/javascript.js"></script>
+</body>
+</html>
